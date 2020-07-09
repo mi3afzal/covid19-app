@@ -1,0 +1,42 @@
+
+
+
+/* Data Cards { */
+.confirmed {
+  border-bottom: 5px solid rgba(255, 115, 0, 0.5);
+}
+
+.confirmed:hover {
+  box-shadow: 2px 2px 10px rgba(255, 115, 0, 0.5) !important;
+}
+
+.active {
+  border-bottom: 5px solid rgba(0, 0, 255, 0.5);
+}
+
+.active:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 255, 0.5) !important;
+}
+
+.recovered {
+  border-bottom: 5px solid rgba(0, 255, 0, 0.5);
+}
+
+.recovered:hover {
+  box-shadow: 2px 2px 10px rgba(0, 255, 0, 0.5) !important;
+}
+
+.newRecoveries {
+  color: #4caf50 !important;
+}
+
+.deaths {
+  border-bottom: 5px solid rgba(255, 0, 0, 0.5);
+}
+
+.deaths:hover {
+  box-shadow: 2px 2px 10px rgba(255, 0, 0, 0.5) !important;
+}
+
+
+/* Data Cards } */
