@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, Typography, Grid, Paper } from '@material-ui/core';
+import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
 		margin: '50px',
 	},
-	paper: {
-		padding: theme.spacing(2),
-		textAlign: 'center',
-		color: theme.palette.text.secondary,
-	},
-
 	card: {
 		minWidth: 275,
+		textAlign: 'center',
 	  },
 	  title: {
 		fontSize: 14,
@@ -47,7 +42,7 @@ export default function DataCards() {
 							<Card className={classes.card}>
 								<CardContent>
 									<Typography className={classes.title} color="textSecondary" gutterBottom>
-										{key.replace('_', ' ').toUpperCase()}
+										{key.replace(/_/g, ' ').toUpperCase()}
 									</Typography>
 									<Typography variant="h5" component="h2">
 										{globalData[key]}
@@ -57,36 +52,7 @@ export default function DataCards() {
 						</Grid>
 					);
 				} )}
-				<Grid item xs={12} md={3}>
-					<Card className={classes.card}>
-						<CardContent>
-							<Typography className={classes.title} color="textSecondary" gutterBottom>
-								Word of the Day
-        					</Typography>
-							<Typography variant="h5" component="h2">
-								be - lent
-        					</Typography>
-							<Typography className={classes.pos} color="textSecondary">
-								adjective
-        					</Typography>
-							<Typography variant="body2" component="p">
-								well meaning and kindly.
-          					<br />
-								{'"a benevolent smile"'}
-							</Typography>
-						</CardContent>
-					</Card>
-				</Grid>
 
-				<Grid item xs={12} md={3}>
-					<Paper className={classes.paper}>xs=12</Paper>
-				</Grid>
-				<Grid item xs={12} md={3}>
-					<Paper className={classes.paper}>xs=12</Paper>
-				</Grid>
-				<Grid item xs={12} md={3}>
-					<Paper className={classes.paper}>xs=12</Paper>
-				</Grid>
 			</Grid>
 		</div>
 	);
