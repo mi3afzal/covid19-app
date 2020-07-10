@@ -31,15 +31,15 @@ const data = {
 export default function DataChart(){
 
 	const [chartData, setChartlData] = useState(data);
-	useEffect(()=>{
+	/* useEffect(()=>{
 		async function fetchData(){
 			const response = await fetch('https://thevirustracker.com/timeline/map-data.json');
 			let data = await response.json();
 			console.log(data);
-			setChartlData(data.results[0]);
+			setChartlData(data);
 		}
 		fetchData();
-	}, []);
+	}, []); */
 
 	return (
 		<div className="chart">

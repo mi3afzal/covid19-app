@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header';
 import DataCards from './Components/DataCards';
 import DataChart from './Components/DataChart';
+import Map from './Components/Map';
 import Footer from './Components/Footer';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
 			<Header />
 			<DataCards />
 			<DataChart />
-
+			<Map />
 			<Footer />
 		</div>
 	);

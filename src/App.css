@@ -3,6 +3,22 @@
 	width: 80%;
 	margin: 20px auto;
 }
+.mapdiv{ 
+	height: 400px; 
+	width: 90%; 
+	margin: 20px auto 0 auto; 
+}
+.marker{
+	padding: 12px;
+    color: red;
+    background-color: rgb(255, 236, 179);
+    width: 80px;
+    text-align: center;
+    border-radius: 5px;
+}
+.marker > img{
+	height: 10px;
+}
 
 /* Data Cards { */
 .confirmed {
