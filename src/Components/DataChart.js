@@ -31,15 +31,17 @@ const data = {
 export default function DataChart(){
 
 	const [chartData, setChartlData] = useState(data);
-	/* useEffect(()=>{
-		async function fetchData(){
-			const response = await fetch('https://thevirustracker.com/timeline/map-data.json');
-			let data = await response.json();
-			console.log(data);
-			setChartlData(data);
+	useEffect(()=>{
+		async function fetchData(run){
+			if(run){
+				const response = await fetch('https://thevirustracker.com/timeline/map-data.json');
+				let data = await response.json();
+				console.log(data);
+				setChartlData(data);
+			}
 		}
 		fetchData();
-	}, []); */
+	}, []);
 
 	return (
 		<div className="chart">

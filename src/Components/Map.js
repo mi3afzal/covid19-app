@@ -27,7 +27,7 @@ export default function Map(){
                         <div lat={cData.countryInfo.lat} lng={cData.countryInfo.long} className="marker">
                             <img src={cData.countryInfo.flag} title={cData.country} alt={cData.country} />
                             <br /> {cData.country} <br />
-                            Active: {cData.cases}
+                            Active: {cData.active}
                         </div>
                     );
                 } )}
