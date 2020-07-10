@@ -7,6 +7,7 @@
 	height: 400px; 
 	width: 90%; 
 	margin: 20px auto 0 auto; 
+	overflow: hidden;
 }
 .marker{
 	padding: 12px;
@@ -15,6 +16,10 @@
     width: 80px;
     text-align: center;
     border-radius: 5px;
+}
+.marker:hover {
+	z-index: 10000;
+	box-shadow: 2px 2px 10px rgba(255, 0, 0, 0.5);
 }
 .marker > img{
 	height: 10px;
