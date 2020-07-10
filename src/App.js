@@ -16,7 +16,7 @@ function App() {
 		<div className="app">
 			<Header />
 			<DataCards />
-			<CountrySelector setCountry={setCountry} />
+			<CountrySelector country={country} setCountry={setCountry} />
 			<DataChart />
 			<Map />
 			<Footer />
