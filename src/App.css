@@ -1,3 +1,9 @@
+
+.chart{
+	width: 80%;
+	margin: 20px auto;
+}
+
 /* Data Cards { */
 .confirmed {
 	border-bottom: 5px solid rgba(255, 115, 0, 0.5);
