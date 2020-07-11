@@ -15,21 +15,22 @@ const useStyles = makeStyles((theme) => ({
 	
 }));
 
-export default function DataCards() {
+export default function DataCards(props) {
 	const classes = useStyles();
 
-	const [globalData, setGlobalData] = useState({});
+	const [cardsData, setCardsData] = useState({});
 	useEffect(()=>{
-		async function fetchData(){
-			const response = await fetch('https://api.thevirustracker.com/free-api?global=stats');
-			let data = await response.json();
+		
+		let url = 'https://disease.sh/v3/covid-19/all?yesterday=false&allowNull=false';
+		if(props.selectedCountry !== 'all') url = `https://disease.sh/v3/covid-19/countries/${props.selectedCountry}?yesterday=false&strict=true&allowNull=false`;
 
-			delete data.results[0].source;
-			console.log(data);
-			setGlobalData(data.results[0]);
+		async function fetchData(){
+			const response = await fetch(url);
+			let data = await response.json();
+			setCardsData(data);
 		}
 		fetchData();
-	}, []);
+	}, [props.selectedCountry]);
 
 	return (
 		<div className={classes.root}>
@@ -39,8 +40,8 @@ export default function DataCards() {
 					<Card className={`${classes.card} confirmed`}>
 						<CardContent>
 							<Typography color="textSecondary" gutterBottom>Confirmed</Typography>
-							<Typography variant="h5" component="h2">{globalData.total_cases}</Typography>
-							<Typography color="secondary">+{globalData.total_new_cases_today} New</Typography>
+							<Typography variant="h5" component="h2">{cardsData.cases}</Typography>
+							<Typography color="secondary">+{cardsData.todayCases} New</Typography>
 							<Typography variant="body2" component="p">Number of confirmed COVID-19 cases</Typography>
 						</CardContent>
 					</Card>
@@ -50,8 +51,8 @@ export default function DataCards() {
 					<Card className={`${classes.card} active`}>
 						<CardContent>
 							<Typography color="textSecondary" gutterBottom>Active</Typography>
-							<Typography variant="h5" component="h2">{globalData.total_active_cases}</Typography>
-							<Typography color="secondary">{globalData.total_serious_cases} Critical</Typography>
+							<Typography variant="h5" component="h2">{cardsData.active}</Typography>
+							<Typography color="secondary">{cardsData.critical} Critical</Typography>
 							<Typography variant="body2" component="p">Number of active COVID-19 cases</Typography>
 						</CardContent>
 					</Card>
@@ -61,8 +62,8 @@ export default function DataCards() {
 					<Card className={`${classes.card} recovered`}>
 						<CardContent>
 							<Typography color="textSecondary" gutterBottom>Recovered</Typography>
-							<Typography variant="h5" component="h2">{globalData.total_recovered}</Typography>
-							<Typography className="newRecoveries">+{globalData.total_unresolved} Unresolved</Typography>
+							<Typography variant="h5" component="h2">{cardsData.recovered}</Typography>
+							<Typography className="newRecoveries">+{cardsData.todayRecovered} New</Typography>
 							<Typography variant="body2" component="p">Number of recoveries from COVID-19</Typography>
 						</CardContent>
 					</Card>
@@ -72,8 +73,8 @@ export default function DataCards() {
 					<Card className={`${classes.card} confirmed`}>
 						<CardContent>
 							<Typography color="textSecondary" gutterBottom>Deaths</Typography>
-							<Typography variant="h5" component="h2">{globalData.total_deaths}</Typography>
-							<Typography color="secondary">+{globalData.total_new_deaths_today} New</Typography>
+							<Typography variant="h5" component="h2">{cardsData.deaths}</Typography>
+							<Typography color="secondary">+{cardsData.todayDeaths} New</Typography>
 							<Typography variant="body2" component="p">Number of deaths from COVID-19</Typography>
 						</CardContent>
 					</Card>
